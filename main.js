@@ -301,11 +301,17 @@ function setupTestimonials(){
   const meta = $("#tMeta");
   const prev = $("#tPrev");
   const next = $("#tNext");
+  const thumbsWrap = $("#tThumbs");
 
   if (!section || !img || !name || !role || !text || !meta || !prev || !next) return;
 
   let idx = 0;
   let anim = false;
+
+  const setAnimating = (on) => {
+    anim = on;
+    section.classList.toggle("is-animating", on);
+  };
 
   const render = () => {
     const d = dataList[idx];
@@ -313,11 +319,23 @@ function setupTestimonials(){
     name.textContent = d.name;
     role.textContent = d.role;
     text.textContent = `"${d.text}"`;
+
+    // update thumb active state
+    if (thumbsWrap){
+      const thumbs = thumbsWrap.querySelectorAll(".triad-testimonials__thumb");
+      thumbs.forEach((el, i) => el.classList.toggle("is-active", i === idx));
+    }
   };
 
-  const setAnimating = (on) => {
-    anim = on;
-    section.classList.toggle("is-animating", on);
+  const goTo = (newIdx) => {
+    if (anim || newIdx === idx) return;
+    setAnimating(true);
+
+    setTimeout(() => {
+      idx = newIdx;
+      render();
+      setAnimating(false);
+    }, 500);
   };
 
   const go = (dir) => {
@@ -337,6 +355,22 @@ function setupTestimonials(){
   prev.addEventListener("click", () => go("prev"));
   next.addEventListener("click", () => go("next"));
 
+  // build thumbnails once
+  if (thumbsWrap){
+    thumbsWrap.innerHTML = dataList.map((item, i) => {
+      const active = i === idx ? " is-active" : "";
+      return `<img class="triad-testimonials__thumb${active}" data-idx="${i}" src="${item.img}" alt="${item.name}">`;
+    }).join("");
+
+    thumbsWrap.addEventListener("click", (e) => {
+      const t = e.target;
+      if (!t || !t.classList || !t.classList.contains("triad-testimonials__thumb")) return;
+      const i = Number(t.getAttribute("data-idx"));
+      if (Number.isNaN(i)) return;
+      goTo(i);
+    });
+  }
+
   render();
   setAnimating(false);
 
@@ -344,6 +378,55 @@ function setupTestimonials(){
   if (!prefersReduced){
     setInterval(() => go("next"), 5000);
   }
+}
+
+/* =========================
+  Core Services (NEW) - Bento interactions
+  Spotlight + 3D tilt (scoped)
+========================= */
+function setupCoreServicesBento(){
+  const root = document.querySelector("#triad-digital-core-bento-hub");
+  if (!root) return;
+
+  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const coarsePointer = window.matchMedia("(pointer: coarse)").matches;
+
+  const cards = Array.from(root.querySelectorAll(".triad-core-card"));
+
+  cards.forEach((card) => {
+    const spotlight = card.querySelector(".triad-core-spotlight");
+    if (!spotlight) return;
+
+    // If user prefers reduced motion or on touch devices: keep spotlight off + no tilt
+    if (prefersReduced || coarsePointer) return;
+
+    const onMove = (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      spotlight.style.left = (x - 200) + "px";
+      spotlight.style.top = (y - 200) + "px";
+      spotlight.style.opacity = "1";
+
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = (y - centerY) / 60;
+      const rotateY = (centerX - x) / 60;
+
+      card.style.transform =
+        "perspective(1000px) rotateX(" + rotateX + "deg) rotateY(" + rotateY + "deg) scale3d(1.02, 1.02, 1.02)";
+    };
+
+    const onLeave = () => {
+      spotlight.style.opacity = "0";
+      card.style.transform =
+        "perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)";
+    };
+
+    card.addEventListener("mousemove", onMove);
+    card.addEventListener("mouseleave", onLeave);
+  });
 }
 
 /* =========================
@@ -356,6 +439,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupCounters();
   setupUVP();
   renderServices();
+	setupCoreServicesBento();
   renderProcess();
   setupCaseFilters();
   setupTestimonials();

@@ -121,7 +121,8 @@ header.scrolled .top-contact-bar{display:none;}
   Bottom bar
 ========================= */
 .bottom-shape-section{position:relative; width:100%; background:var(--body-bg); z-index:5; margin-top:-120px;}
-.bottom-svg-bg{display:block; width:100%; height:auto; min-height:180px;}
+.bottom-svg-bg{width:100%; margin-top: -2px; height:auto; min-height:180px;}
+/* .bottom-svg-bg{display:block; width:100%; height:auto; min-height:180px;} */
 .svg-cyan{fill:#22D3EE;}
 .svg-dark-blue{fill:#1C3664;}
 .svg-purple{fill:#6D28D9;}
@@ -146,7 +147,7 @@ header.scrolled .top-contact-bar{display:none;}
 ========================= */
 .trust-signals-section{padding:100px 0; background:var(--trust-bg);}
 .trust-header{text-align:center; margin-bottom:60px;}
-.trust-title{font-size:42px; font-weight:800; color:var(--primary-dark); margin-bottom:15px;}
+.trust-title{font-size:48px; font-weight:800; color:var(--primary-dark); margin-bottom:15px;}
 .trust-subtitle{color:#555; max-width:650px; margin:0 auto;}
 
 .trust-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:30px;}
@@ -205,7 +206,7 @@ header.scrolled .top-contact-bar{display:none;}
 .section-center{text-align:center; margin-bottom:80px;}
 .section-title{font-weight:900; color:#1C3664; margin-top:10px;}
 .section-title--xl{font-size:52px;}
-.section-title--lg{font-size:40px;}
+.section-title--lg{font-size:48px; font-weight: 800;}
 .section-subtitle{color:#64748b; font-size:18px; max-width:600px; margin:15px auto 0;}
 .section-subtitle--services{max-width:600px;}
 
@@ -226,6 +227,76 @@ header.scrolled .top-contact-bar{display:none;}
 .services-bottom{text-align:center; margin-top:60px;}
 .services-bottom__pill{display:inline-flex; align-items:center; gap:30px; background:#fff; padding:20px 40px; border-radius:100px; box-shadow:0 15px 40px rgba(0,35,71,.05); border:1px solid rgba(34,211,238,.1);}
 .services-bottom__text{font-size:15px; font-weight:600; color:#1C3664;}
+
+
+/* ========================= CORE SERVICES (NEW) - BENTO HUB (one-line selectors) ========================= */
+#triad-digital-core-bento-hub{background:var(--body-bg); padding:140px 0; position:relative; overflow:hidden;}
+#triad-digital-core-bento-hub .triad-core-hub__mesh{position:absolute; inset:0; background:radial-gradient(circle at 10% 20%, rgba(34,211,238,.05) 0%, transparent 40%), radial-gradient(circle at 90% 80%, rgba(109,40,217,.05) 0%, transparent 40%); z-index:1; pointer-events:none;}
+#triad-digital-core-bento-hub .triad-core-hub__head{text-align:center; margin:0 auto 80px; position:relative; z-index:2; padding:0 6px;}
+#triad-digital-core-bento-hub .triad-core-hub__eyebrow{display:block; color:var(--brand-purple); font-weight:800; font-size:12px; letter-spacing:.5em; text-transform:uppercase; margin-bottom:16px;}
+#triad-digital-core-bento-hub .triad-core-hub__title{margin:0 0 18px; font-weight:800; line-height:1; font-size:48px; color:var(--brand-dark);}
+#triad-digital-core-bento-hub .triad-core-hub__subtitle{margin:0 auto; max-width:680px; color:#6b7280; font-weight:500; font-size:18px; line-height:1.7;}
+
+#triad-digital-core-bento-hub .triad-core-grid{display:grid; grid-template-columns:repeat(4, 1fr); grid-auto-rows:minmax(240px, auto); gap:24px; position:relative; z-index:2;}
+#triad-digital-core-bento-hub .triad-core-card{background:rgba(255,255,255,.6); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border:1px solid rgba(255,255,255,.8); border-radius:48px; position:relative; overflow:hidden; box-shadow:0 4px 30px rgba(0,0,0,.02); transition:transform .1s ease-out, box-shadow .4s cubic-bezier(.175,.885,.32,1.275), border-color .4s ease; display:flex; flex-direction:column; transform:perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1); will-change:transform;}
+#triad-digital-core-bento-hub .triad-core-card:hover{box-shadow:0 20px 60px rgba(34,211,238,.15); border-color:rgba(34,211,238,.4);}
+
+#triad-digital-core-bento-hub .triad-core-spotlight{position:absolute; width:450px; height:450px; background:radial-gradient(circle, rgba(34,211,238,.2) 0%, transparent 70%); border-radius:50%; pointer-events:none; opacity:0; transition:opacity .6s ease; z-index:1; left:-9999px; top:-9999px;}
+#triad-digital-core-bento-hub .triad-core-inner{position:relative; z-index:3; padding:40px; height:100%; display:flex; flex-direction:column;}
+#triad-digital-core-bento-hub .triad-core-inner--row{flex-direction:row; align-items:center; gap:48px;}
+
+#triad-digital-core-bento-hub .triad-core-card--span-2-2{grid-column:span 2; grid-row:span 2;}
+#triad-digital-core-bento-hub .triad-core-card--span-1-2{grid-column:span 1; grid-row:span 2;}
+#triad-digital-core-bento-hub .triad-core-card--span-2-1{grid-column:span 2; grid-row:span 1;}
+
+#triad-digital-core-bento-hub .triad-core-iconbox{width:64px; height:64px; background:#fff; border-radius:20px; display:flex; align-items:center; justify-content:center; font-size:26px; color:var(--brand-dark); margin-bottom:28px; box-shadow:0 10px 25px rgba(0,0,0,.05); transition:.3s ease;}
+#triad-digital-core-bento-hub .triad-core-iconbox--sm{width:50px; height:50px; font-size:20px; margin-bottom:20px;}
+#triad-digital-core-bento-hub .triad-core-iconbox--wide{margin-bottom:0; flex-shrink:0;}
+#triad-digital-core-bento-hub .triad-core-card:hover .triad-core-iconbox{background:var(--accent-cyan); color:var(--brand-dark); transform:scale(1.1) rotate(-5deg);}
+
+#triad-digital-core-bento-hub .triad-core-pill{display:inline-block; width:max-content; background:#7C3AED; color:#fff; font-size:11px; font-weight:900; text-transform:uppercase; padding:6px 18px; border-radius:999px; letter-spacing:2px; margin-bottom:28px; box-shadow:0 8px 15px rgba(124,58,237,.3);}
+
+#triad-digital-core-bento-hub .triad-core-h3{margin:0; color:var(--brand-dark);}
+#triad-digital-core-bento-hub .triad-core-h3--xl{font-size:40px; font-weight:900; letter-spacing:-.02em; margin-bottom:24px; line-height:1.05;}
+#triad-digital-core-bento-hub .triad-core-h3--lg{font-size:30px; font-weight:900; margin-bottom:12px;}
+#triad-digital-core-bento-hub .triad-core-h3--md{font-size:24px; font-weight:900; margin-bottom:16px;}
+#triad-digital-core-bento-hub .triad-core-h3--sm{font-size:20px; font-weight:800;}
+#triad-digital-core-bento-hub .triad-core-h3--sm-strong{font-size:20px; font-weight:900; margin-bottom:16px;}
+
+#triad-digital-core-bento-hub .triad-core-p{margin:0 0 24px; color:#6b7280; font-weight:500; line-height:1.7; font-size:14px;}
+#triad-digital-core-bento-hub .triad-core-p--lg{font-size:18px; max-width:420px; margin-bottom:48px;}
+#triad-digital-core-bento-hub .triad-core-p--sm{font-size:14px; margin-top:12px;}
+
+#triad-digital-core-bento-hub .triad-core-link{margin-top:auto; display:flex; align-items:center; gap:12px; color:#7C3AED; font-weight:800; font-size:18px; text-decoration:none; transition:gap .25s ease;}
+#triad-digital-core-bento-hub .triad-core-group:hover .triad-core-link{gap:24px;}
+
+#triad-digital-core-bento-hub .triad-core-circle{margin-top:auto; width:56px; height:56px; border-radius:999px; border:1px solid #f3f4f6; background:transparent; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 10px rgba(0,0,0,.03); cursor:pointer; transition:background .25s ease, color .25s ease; color:var(--brand-dark);}
+#triad-digital-core-bento-hub .triad-core-group:hover .triad-core-circle{background:var(--brand-dark); color:#fff;}
+
+#triad-digital-core-bento-hub .triad-core-widecopy{flex:1;}
+#triad-digital-core-bento-hub .triad-core-widep{max-width:520px; margin-bottom:0;}
+
+#triad-digital-core-bento-hub .triad-core-mobileicon{font-size:36px; color:var(--accent-cyan); margin-bottom:24px; transform:rotate(0deg); transition:transform .25s ease;}
+#triad-digital-core-bento-hub .triad-core-group:hover .triad-core-mobileicon{transform:rotate(12deg);}
+
+#triad-digital-core-bento-hub .triad-core-micro{margin:0; font-size:10px; color:#9ca3af; font-weight:900; text-transform:uppercase; letter-spacing:.3em;}
+
+#triad-digital-core-bento-hub .triad-core-launchpad{background:var(--brand-dark); border-radius:40px; padding:40px 60px; margin-top:80px; display:flex; justify-content:space-between; align-items:center; color:#fff; box-shadow:0 30px 60px rgba(28,54,100,.3); position:relative; z-index:3; gap:30px;}
+#triad-digital-core-bento-hub .triad-core-launchpad__tag{display:inline-block; background:rgba(34,211,238,.15); color:var(--accent-cyan); padding:6px 16px; border-radius:999px; font-size:11px; font-weight:900; text-transform:uppercase; letter-spacing:1px; margin-bottom:12px;}
+#triad-digital-core-bento-hub .triad-core-launchpad__row{display:flex; align-items:center; gap:16px;}
+#triad-digital-core-bento-hub .triad-core-launchpad__title{margin:0; font-weight:900; font-size:24px;}
+#triad-digital-core-bento-hub .triad-core-launchpad__sub{margin:8px 0 0; color:rgba(255,255,255,.5); font-size:14px; font-weight:500;}
+
+#triad-digital-core-bento-hub .triad-core-pulsedot{width:12px; height:12px; border-radius:999px; background:#4ade80; box-shadow:0 0 15px rgba(74,222,128,.5); animation:triadCorePulse 1.5s ease-in-out infinite;}
+@keyframes triadCorePulse{0%{transform:scale(1); opacity:1;} 50%{transform:scale(1.25); opacity:.75;} 100%{transform:scale(1); opacity:1;}}
+
+#triad-digital-core-bento-hub .triad-core-launchpad__btn{display:inline-flex; align-items:center; gap:10px; background:var(--accent-cyan); color:var(--brand-dark); padding:20px 48px; border-radius:18px; font-weight:900; font-size:12px; letter-spacing:.12em; text-transform:uppercase; text-decoration:none; box-shadow:0 20px 40px rgba(34,211,238,.2); transition:transform .2s ease, box-shadow .2s ease; white-space:nowrap;}
+#triad-digital-core-bento-hub .triad-core-launchpad__btn:hover{transform:scale(1.05); box-shadow:0 24px 46px rgba(34,211,238,.28);}
+
+@media (max-width:1024px){#triad-digital-core-bento-hub .triad-core-grid{grid-template-columns:repeat(2,1fr);} #triad-digital-core-bento-hub .triad-core-launchpad{flex-direction:column; text-align:center; padding:40px;} #triad-digital-core-bento-hub .triad-core-launchpad__row{justify-content:center;}}
+@media (max-width:768px){#triad-digital-core-bento-hub .triad-core-hub__title{font-size:52px;} #triad-digital-core-bento-hub .triad-core-grid{grid-template-columns:1fr; grid-auto-rows:auto;} #triad-digital-core-bento-hub .triad-core-card--span-2-2{grid-column:span 1; grid-row:span 1;} #triad-digital-core-bento-hub .triad-core-card--span-1-2{grid-column:span 1; grid-row:span 1;} #triad-digital-core-bento-hub .triad-core-card--span-2-1{grid-column:span 1; grid-row:span 1;}}
+
+
 
 /* =========================
   Process
@@ -334,6 +405,12 @@ header.scrolled .top-contact-bar{display:none;}
 .triad-proof__i--purple{color:#6D28D9;}
 .triad-proof__i--yellow{color:#fbbf24;}
 .triad-proof__t{font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.2em;}
+/* ========================= TESTIMONIAL THUMBNAILS ========================= */
+.triad-testimonials__thumbs{display:flex; gap:16px; margin-top:48px; justify-content:center; flex-wrap:wrap;}
+@media (min-width:1024px){.triad-testimonials__thumbs{justify-content:flex-start;}}
+.triad-testimonials__thumb{width:64px; height:64px; border-radius:16px; cursor:pointer; transition:all .3s ease; object-fit:cover; border:2px solid transparent;}
+.triad-testimonials__thumb:hover{border-color:#22D3EE;}
+.triad-testimonials__thumb.is-active{width:80px; height:80px; border-radius:16px; border:4px solid #22D3EE; box-shadow:var(--shadow-lg); margin-top:-8px;}
 
 /* Animation state for testimonials */
 .triad-testimonials.is-animating .triad-testimonials__img,
